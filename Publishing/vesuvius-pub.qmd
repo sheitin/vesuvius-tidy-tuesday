@@ -57,7 +57,7 @@ daily_plot <- vesuvius_agg |>
   geom_col(aes(fill = top_ten)) +
   geom_text(data = ~ filter(.x, top_ten == "top"), 
             aes(label = obs_day),
-            size = 2.5,
+            size = 3,
             hjust = -.1,
             angle = 10,
             color = pop_color) +
@@ -66,7 +66,8 @@ daily_plot <- vesuvius_agg |>
   labs(y = "# of Earthquakes",
        x = "Date",
        title = "Earthquake Activity Near Mt Vesuvius Over Time",
-       subtitle = "<span style = 'color: DarkOrange;'>Top Ten Most Active Days</span> ") +
+       subtitle = "<span style = 'color: DarkOrange;'>Top Ten Most Active Days</span> ",
+       alt = "A bar plot of with the number of daily earthquakes near Mt. Vesuvius from 2013 to 2025. The top ten most active days are colored orange and they range from about 50 earthquakes to about 150 earthquakes. The rest of the days are in grey and they are much lower, mostly around 1 or 2.") +
   scale_x_date(breaks = breaks,
                date_labels = "%Y") +
   theme(panel.grid.minor = element_blank(),
@@ -79,6 +80,6 @@ daily_plot
 
 
 ```{r}
-ggsave("vesuvius.png", path = "~/DsSandbox/", plot = daily_plot, device = "png", height = 5, width = 7)
+ggsave("vesuvius.png", path = "~/DsSandbox/", plot = daily_plot, device = "png", height = 5, width = 9)
 ```
 
